@@ -1,47 +1,63 @@
-﻿    
+﻿
 @model IEnumerable<GroupA.Dominio.Proyecto>
 
 @{
     ViewBag.Title = "Index";
 }
-    
-        <h2>Index</h2>
 
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FechaInicio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BorradoLogico)
-                </th>
-                <th></th>
-            </tr>
+<h2 class="text-center letraFormal">Proyectos</h2>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaInicio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BorradoLogico)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-            }
+<button class="btn btn-default active">
+    <b class="letraFormal">
+        @Html.ActionLink("Crear Nuevo Proyecto", "Create")
+        <span class="iconify" data-icon="fa:plus-square" data-inline="false" style="color: green;"></span>
+    </b>
 
-        </table>
+</button>
+<br />
+<br />
+<table class="table table-responsive">
+    <tr class="letraFormal">
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                <buttom class="btn btn-default active">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <span class="iconify" data-icon="fa:edit" data-inline="false"></span>
+                </buttom>
+                <buttom class="btn btn-default active">
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) <span class="iconify" data-icon="fa:info-circle" data-inline="false"></span>
+                </buttom>
+                <buttom class="btn btn-danger active">
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) <span class="iconify" data-icon="fa:trash-o" data-inline="false"></span>
+                </buttom>
+                <button class="btn btn-default active">
+                    @Html.ActionLink("Agregar Empleado", "AgregarEmpleados", new { id = item.Id}) <span class="iconify" data-icon="fa:plus-square" data-inline="false" style="color: green;"></span>
+                </button>
+</td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts{
+
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+
+}
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />

@@ -18,8 +18,7 @@ namespace GroupA.Web.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            if (Request.IsAuthenticated) 
-                return View(db.Empleados.Where<Empleado>(c => c.BorradoLogico == false).ToList());
+            if (Request.IsAuthenticated) return View(db.Empleados.Where<Empleado>(c => c.BorradoLogico == false).OrderBy(c=>c.FechaNacimiento).ToList());
             else return HttpNotFound();
         }
 

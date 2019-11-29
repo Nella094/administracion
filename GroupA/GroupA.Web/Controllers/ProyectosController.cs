@@ -29,6 +29,8 @@ namespace GroupA.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Proyecto proyecto = db.Proyectos.Find(id);
+            var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
+            ViewBag.Empleados = empleados;
             if (proyecto == null)
             {
                 return HttpNotFound();
@@ -116,6 +118,23 @@ namespace GroupA.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        //Get Proyectos/AgregarEmpleados/3
+        [HttpGet]
+        public ActionResult AgregarEmpleados(int? id)
+        {
+            if (id == null) return  new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            else
+            {
+                Proyecto proyecto = db.Proyectos.Find(id);
+                if (proyecto == null) return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                ViewBag.Proyecto = proyecto;                
+                var empleados = db.Empleados.Where(c => c.BorradoLogico == false).ToList();
+                return View(empleados);
+            }
+            
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -123,6 +142,34 @@ namespace GroupA.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        // Get : Proyectos/Agregar/1
+       
+        [HttpPost,ActionName("AgregarEmpleados")]
+        public ActionResult AgregarEmpleado(int? idProyecto, int? dniEmpleado)
+        {
+            if (idProyecto == null || dniEmpleado == null) return View();
+            else
+            {
+                Proyecto proyecto = db.Proyectos.Find(idProyecto);
+                Empleado empleado = db.Empleados.Where(c => c.Dni == dniEmpleado).First();
+                if (proyecto == null || empleado == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                {
+                    var historialProyecto = new HistorialProyecto();
+                    historialProyecto.Empleado = empleado;
+                    historialProyecto.Proyecto = proyecto;
+                    historialProyecto.Activo = true;
+                    proyecto.HistorialProyectos.Add(historialProyecto);
+                    empleado.HistorialProyectos.Add(historialProyecto);
+                    db.HistorialProyectos.Add(historialProyecto);
+                    db.Entry(proyecto).State = EntityState.Modified;
+                    db.Entry(empleado).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+                
+            }
+            return RedirectToAction("Index");
         }
     }
 }

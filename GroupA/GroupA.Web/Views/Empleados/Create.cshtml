@@ -1,17 +1,17 @@
 ﻿@model GroupA.Dominio.Empleado
 
 @{
-    ViewBag.Title = "Creacion de Empleados";
+    ViewBag.Title = "Create";
 }
 
-    <h2>Registracion de Empleados</h2>
+<h2 class="text-center letraFormal">Crear Nuevo Empleado</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-   
+
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Empleado</h4>
         <hr />
@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control datepicker" } })
-               @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -59,7 +59,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Rol, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Rol, htmlAttributes: new { @class = "form-control "  })
+                @Html.EnumDropDownListFor(model => model.Rol, htmlAttributes: new { @class = "form-control " })
                 @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,16 +76,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Registrar" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-success active" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Volver", "Index")
+    @Html.ActionLink("Volver a Empleados", "Index")
 </div>
-<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet"/>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 @section Scripts {
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
@@ -95,3 +95,5 @@
     </script>
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />

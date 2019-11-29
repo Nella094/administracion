@@ -3,40 +3,92 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<!--
+Dentro de esta pagina en el ViewBag recibis
+    ViewBag.Empleados = Recibis los empleados que forman parte del proyecto
+-->
+<h2 class="text-center">Detalles de Proyecto</h2>
 
 <div>
     <h4>Proyecto</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+    <div class="container">
+        <div class="row">
+            <div class="col sm-12">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaInicio)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaInicio)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaInicio)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaInicio)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BorradoLogico)
-        </dt>
+                </dl>
+            </div>
+            <br />
+            <br />
+            <div class="col sm-12">
+                <h3 class="letraFormal">Empleados que trabajan en el Proyecto @Model.Nombre </h3>
+                <hr />
+                <table class="table table-responsive">
+                    <tr class="letraFormal">
+                        <th>
+                            Dni
+                        </th>
+                        <th>
+                            Apellido
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Opciones
+                        </th>
+                    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.BorradoLogico)
-        </dd>
+                    @foreach (GroupA.Dominio.HistorialProyecto a in ViewBag.Empleados)
+                    {
+                        <tr>
+                            <td>
+                                @a.Empleado.Dni
+                            </td>
+                            <td>
+                                @a.Empleado.Apellido
+                            </td>
+                            <td>
+                                @a.Empleado.Nombre
+                            </td>
+                            <td>
+                                <button class="btn btn-default"><span class="iconify" data-icon="noto:information" data-inline="false"></span> @Html.ActionLink("Mas Informacion", "../Empleados/Details", new { id = a.Empleado.Id }) </button>
+                            </td>
 
-    </dl>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Volver a Proyectos", "Index")
+    </p>
+    <link href="~/Content/FondosParaLetras.css" rel="stylesheet" />
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@section scripts{
+
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+}
+
+
+
+

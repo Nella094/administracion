@@ -4,13 +4,13 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 class="text-center letraFormal">Crear Nuevo Proyecto</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Proyecto</h4>
         <hr />
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control datepicker" } })
                 @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,16 +43,24 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-success active" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a Proyectos", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".datepicker").datepicker()
+        });
+    </script>
 }
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />

@@ -6,7 +6,7 @@
 
     <h2 class="text-center letraFormal">@ViewBag.Title</h2>
 
-    <button class="btn btn-default">
+    <button class="btn btn-default active">
         <b class="letraFormal">
             @Html.ActionLink("Crear Nuevo Empleado", "Create")
             <span class="iconify" data-icon="fa:plus-square" data-inline="false" style="color: green;"></span>
@@ -14,7 +14,7 @@
 
     </button>
     <br />
-    <br />
+    
     <table class="table table-responsive">
         <tr>
             
@@ -79,13 +79,13 @@
                 </td>
 
                 <td>
-                    <button class="btn btn-default">
+                    <button class="btn btn-default active">
                         @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <span class="iconify" data-icon="fa:edit" data-inline="false"></span>
                     </button>
-                    <button class="btn btn-default">
+                    <button class="btn btn-default active">
                         @Html.ActionLink("Detalles", "Details", new { id = item.Id }) <span class="iconify" data-icon="fa:info-circle" data-inline="false"></span>
                 </button>
-                <button class="btn btn-default">
+                <button class="btn btn-danger active">
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) <span class="iconify" data-icon="fa:trash-o" data-inline="false"></span>
             </button>
         </td>
