@@ -1,0 +1,9 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ruluko&display=swap');
+
+.letraPiola {
+    font-family: 'Gugi', cursive;
+}
+.letraFormal {
+    font-family: 'Ruluko', sans-serif;
+}

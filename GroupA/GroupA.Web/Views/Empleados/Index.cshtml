@@ -1,0 +1,102 @@
+﻿@model IEnumerable<GroupA.Dominio.Empleado>
+
+@{
+    ViewBag.Title = "Empleados";
+}
+
+    <h2 class="text-center letraFormal">@ViewBag.Title</h2>
+
+    <button class="btn btn-default">
+        <b class="letraFormal">
+            @Html.ActionLink("Crear Nuevo Empleado", "Create")
+            <span class="iconify" data-icon="fa:plus-square" data-inline="false" style="color: green;"></span>
+        </b>
+
+    </button>
+    <br />
+    <br />
+    <table class="table table-responsive">
+        <tr>
+            
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.Dni)
+                </div>
+            </th>
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </div>
+            </th>
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </div>
+            </th>
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </div>
+            </th>
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.FechaIngreso)
+                </div>
+            </th>
+            <th>
+                <div class="letraFormal">
+                    @Html.DisplayNameFor(model => model.Rol)
+                </div>
+            </th>
+
+            <th>
+                <div class="letraFormal">
+                    Opciones
+                </div>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol)
+                </td>
+
+                <td>
+                    <button class="btn btn-default">
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <span class="iconify" data-icon="fa:edit" data-inline="false"></span>
+                    </button>
+                    <button class="btn btn-default">
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }) <span class="iconify" data-icon="fa:info-circle" data-inline="false"></span>
+                </button>
+                <button class="btn btn-default">
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) <span class="iconify" data-icon="fa:trash-o" data-inline="false"></span>
+            </button>
+        </td>
+    </tr>
+        }
+
+
+        @section Scripts{
+
+            <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+
+        }
+        <link href="~/Content/FondosParaLetras.css" rel="stylesheet" />
+

@@ -1,0 +1,11 @@
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\bin\Release\GroupA.Dominio.dll
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\bin\Release\GroupA.Dominio.pdb
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.csprojAssemblyReference.cache
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.dll
+C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.pdb
+C:\Users\Evaristo\source\repos\GroupA\GroupA\GroupA.Dominio\bin\Release\GroupA.Dominio.dll
+C:\Users\Evaristo\source\repos\GroupA\GroupA\GroupA.Dominio\bin\Release\GroupA.Dominio.pdb
+C:\Users\Evaristo\source\repos\GroupA\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.csprojAssemblyReference.cache
+C:\Users\Evaristo\source\repos\GroupA\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.dll
+C:\Users\Evaristo\source\repos\GroupA\GroupA\GroupA.Dominio\obj\Release\GroupA.Dominio.pdb

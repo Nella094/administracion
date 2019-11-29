@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:intentoproyectoadmdbserver.database.windows.net,1433;Initial Catalog=intentoProyectoADM_db;Persist Security Info=False;User ID=admin-adm;Password=Elefante-2594;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Evaristo\\source\\repos\\GroupA\\GroupA\\GroupA\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ModeloGroupA-Web.config Connection String" description="ModeloGroupA Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:intentoproyectoadmdbserver.database.windows.net,1433;Initial Catalog=intentoProyectoADM_db;Persist Security Info=False;User ID=admin-adm;Password=Elefante-2594;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Evaristo\\source\\repos\\GroupA\\GroupA\\GroupA\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ModeloGroupA']/@connectionString" />
+  </parameter>
+  <parameter name="ContextoGroupA-Web.config Connection String" description="ContextoGroupA Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:intentoproyectoadmdbserver.database.windows.net,1433;Initial Catalog=intentoProyectoADM_db;Persist Security Info=False;User ID=admin-adm;Password=Elefante-2594;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Evaristo\\source\\repos\\GroupA\\GroupA\\GroupA\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ContextoGroupA']/@connectionString" />
+  </parameter>
+</parameters>
