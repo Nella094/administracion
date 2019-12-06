@@ -147,6 +147,29 @@ namespace GroupA.Web.Controllers
             else return HttpNotFound();
            
         }
+        public ActionResult AsignarInasistencia(int? id)
+        {
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            Empleado empleado = db.Empleados.Find(id);
+            if (empleado == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return View(empleado);
+        }
+        [HttpPost, ActionName("AsignarInasistencia")]
+        public ActionResult ConfirmarInasistencia(int? id)
+        {
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var empleado = db.Empleados.Find(id);
+            if (empleado == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var fechaInasistencia = DateTime.Today;
+            var inasistencia = new Inasistencia();
+            inasistencia.Empleado = empleado;
+            inasistencia.Fecha = fechaInasistencia;
+            empleado.Inasistencias.Add(inasistencia);
+            db.Inasistencias.Add(inasistencia);
+            db.Entry(empleado).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -28,7 +28,7 @@ namespace GroupA.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sector sector = db.Sectores.Find(id);
+            Sector sector = db.Sectores.Find(id);            
             if (sector == null)
             {
                 return HttpNotFound();
@@ -112,6 +112,32 @@ namespace GroupA.Web.Controllers
         {
             Sector sector = db.Sectores.Find(id);
             db.Sectores.Remove(sector);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        // Sectores/AgregarEmpleado/1
+        public ActionResult AgregarEmpleado(int? id)
+        {
+            if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            else
+            {
+                Sector sector = db.Sectores.Find(id);
+                if (sector == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var empleados = db.Empleados.Where(emp => emp.BorradoLogico == false && emp.Sector == null).ToList();
+                ViewBag.Empleados = empleados;
+                return View(sector);
+            }
+        }
+        [HttpPost]
+        public ActionResult AgregarEmpleado(int id, int dniEmpleado)
+        {
+            var sector = db.Sectores.Find(id);
+            var empleado = db.Empleados.Where(emp => emp.Dni == dniEmpleado).First();
+            sector.Empleados.Add(empleado);
+            empleado.Sector = sector;
+            db.Entry(sector).State = EntityState.Modified;
+            db.Entry(empleado).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

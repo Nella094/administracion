@@ -9,7 +9,16 @@
         <li>
             @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administracion de Personal<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Empleados", "../Empleados/Index")</li>
+                <li>@Html.ActionLink("Sectores", "../Sectores/Index")</li>
+                <li>@Html.ActionLink("Proyectos", "../Proyectos/Index")</li>
+            </ul>
+        </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+
     </ul>
     }
 }

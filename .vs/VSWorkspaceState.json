@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GroupA"
+    "\\GroupA",
+    "\\GroupA\\GroupA.Web",
+    "\\GroupA\\GroupA.Web\\Views",
+    "\\GroupA\\GroupA.Web\\Views\\Proyectos"
   ],
-  "SelectedNode": "\\GroupA\\GroupA.sln",
   "PreviewInSolutionExplorer": false
 }

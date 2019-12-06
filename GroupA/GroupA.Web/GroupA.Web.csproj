@@ -314,6 +314,7 @@
     <Content Include="Views\Proyectos\Details.cshtml" />
     <Content Include="Views\Proyectos\Edit.cshtml" />
     <Content Include="Views\Proyectos\Index.cshtml" />
+    <Content Include="Views\Empleados\AsignarInasistencia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

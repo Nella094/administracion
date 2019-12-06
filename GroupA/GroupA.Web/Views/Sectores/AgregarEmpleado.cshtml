@@ -1,0 +1,45 @@
+﻿@model GroupA.Dominio.Sector
+@{
+    ViewBag.Title = "AgregarEmpleado";
+}
+
+    <div class=" container">
+        <div class=" row">
+            <div class="col-sm-12">
+                <h2 class="letraFormal text-center">Agregar Empleados al Sector @Model.Nombre</h2>
+            </div>
+            <div class="col-sm-12">
+                <table class="table table-responsive">
+                    <tr class="letraFormal">
+                        <th>Dni </th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+
+                    @foreach (GroupA.Dominio.Empleado empleado in ViewBag.Empleados)
+                    {
+                        <tr>
+                            <td>@empleado.Dni</td>
+                            <td>@empleado.Apellido</td>
+                            <td>@empleado.Nombre</td>
+                            <td>
+                                @using (Html.BeginForm())
+                                {
+                                    <input type="hidden" name="id" value=@Model.Id>
+                                    <input type="hidden" name="dniEmpleado" value=@empleado.Dni>
+                                    <input type="submit" value="Agregar Empleado" class="btn btn-default" />
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+        <div>
+            @Html.ActionLink("Volver a Sectores", "Index")
+        </div>
+    </div>
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />

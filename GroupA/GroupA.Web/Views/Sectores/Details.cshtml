@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center letraFormal">Detalles del Sector</h2>
 
 <div>
     <h4>Sector</h4>
@@ -20,7 +20,33 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class=" container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="letraFormal text-center">Empleados que Pertenecen al Sector </h3>
+        </div>
+        <table class="table table-responsive">
+            <tr>
+                <th>Dni</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+            </tr>
+            <tr>
+                @foreach (GroupA.Dominio.Empleado empleado in Model.Empleados)
+                {
+                    <td>@empleado.Dni; </td>
+                    <td> @empleado.Apellido</td>
+                    <td>@empleado.Nombre</td>
+
+                }
+
+            </tr>
+        </table>
+    </div>
+    <p>
+        @Html.ActionLink("Volver a Sectores", "Index")
+    </p>
+</div>
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />
